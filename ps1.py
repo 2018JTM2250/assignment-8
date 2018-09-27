@@ -7,33 +7,34 @@
 
 # Getting number of rows and columns
 r,c = list([int(i) for i in input().split()])
-
-# Initializing lists for the pattern 
 listarr=[]
 listnew=[]
-x=0
+x=1
+
+# Initializing lists for the pattern
+for i in range(106):
+     listarr.append('')
+
+listnew=[]
 
 # Getting characters for pattern
 for i in range(r):
     si=input()
-    l=list(si[:c])
-    listarr.append(l)
-
-print(listarr)
+    l=list(si[:c])+['','','','','','','']
+    listarr.insert(i,l)
 
 
-# Pattern Matching
 for i in range(r):
     for j in range(c):
         if listarr[i][j]=="S":
-            for k in range(2):
-                if j+k <0 or j+k >2:
-                    print("Single Element")
-                else:
-                    if (listarr[i][j+k]=="S") and (listarr[i][j-k]=="S"):
-                        x+=1
-                        listnew.append(x)
-                        x=0
+            for k in range(1,c):
+                if (listarr[i][j+k]=="S") and (listarr[i][j-k]=="S") :
+                    x+=2
 
-print(listnew)
+            listnew.append(x)
+            x=1
 
+maxvalue=max(listnew)
+minvalue=min(listnew)
+print("Maximum matching pattern in horizontal direction" +  " " + str(maxvalue))
+print("Minimum matching pattern in horizontal direction" +  " " + str(minvalue))
