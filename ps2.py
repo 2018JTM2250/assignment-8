@@ -47,11 +47,6 @@ gr1new = (gr1[-k1:] + gr1[:-k1])
 gr2new = (gr2[-k2:] + gr2[:-k2])
 gr3new = (gr3[-k3:] + gr3[:-k3])
 
-print(gr1new)
-print(gr2new)
-print(gr3new)
-
-
 #Getting decrypted msg
 p=q=r=0
 for i in range(0,len(word)):
@@ -66,7 +61,6 @@ for i in range(0,len(word)):
         r+=1
 
 #displaying the decrypted msg
-print(wordlist)
 for i in wordlist[:]:
     print (i, end ='')
 
