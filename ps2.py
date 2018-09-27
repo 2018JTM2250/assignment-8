@@ -27,19 +27,18 @@ index3=[]
 k1,k2,k3 = [int(i) for i in input().split()]
 
 # getting input string
-word=input()
-wordlist=list(word)
+msgword=list(input())
 
 # Dividing the characters into different groups
-for i in range(len(word)):
-    if wordlist[i] in group1:
-        gr1.append(wordlist[i])
+for i in range(len(msgword)):
+    if msgword[i] in group1:
+        gr1.append(msgword[i])
         index1.append(i)
-    elif wordlist[i] in group2:
-        gr2.append(wordlist[i])
+    elif msgword[i] in group2:
+        gr2.append(msgword[i])
         index2.append(i)
-    elif wordlist[i] in group3:
-        gr3.append(wordlist[i])
+    elif msgword[i] in group3:
+        gr3.append(msgword[i])
         index3.append(i)
 
 # Rotating the groups
@@ -48,21 +47,22 @@ gr2new = (gr2[-k2:] + gr2[:-k2])
 gr3new = (gr3[-k3:] + gr3[:-k3])
 
 #Getting decrypted msg
-p=q=r=0
-for i in range(0,len(word)):
+x=y=z=0
+for i in range(len(msgword)):
     if i in index1:
-        wordlist[i]=gr1new[p]
-        p+=1
+        msgword[i]=gr1new[x]
+        x+=1
     elif i in index2:
-        wordlist[i]=gr2new[q]
-        q+=1
+        msgword[i]=gr2new[y]
+        y+=1
     elif i in index3:
-        wordlist[i]=gr3new[r]
-        r+=1
+        msgword[i]=gr3new[z]
+        z+=1
 
 #displaying the decrypted msg
-for i in wordlist[:]:
+for i in msgword[:]:
     print (i, end ='')
 
 print("\n")
+
 
